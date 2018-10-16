@@ -1,0 +1,45 @@
+ @import 'app-colors';
+
+ $toolbar-color: #f7f7f7;
+ $toolbar-border-color: #dedede;
+
+.ba-header-container {
+    height: 50px;
+    width: 100%;
+    padding: 5px 0 5px 0px;
+    background-color: $toolbar-color;
+    border-bottom: 1px solid #dedede;
+
+    .icon {
+        display: inline-block;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+        text-align: center;
+        line-height: 41px;
+        cursor: pointer;
+        color: #444444;
+    }
+    
+    .menu-icon {
+        top: 10px;
+        left: 10px;
+    }
+
+    .img-container {
+        img {
+            width: 154px;
+            margin-left: 64px;
+            margin-top: 4px;
+        }
+    }
+
+    .cart-icon {
+        top: 10px;
+        right: 10px;
+    }
+
+}
+
+

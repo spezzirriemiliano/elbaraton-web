@@ -1,0 +1,12 @@
+div.ba-left-menu-layout([@layoutAnimation], *ngIf="menuService.getShowLeftMenu()", (click)="closeMenu()")
+div.ba-left-menu-container([@menuAnimation], *ngIf="menuService.getShowLeftMenu()")
+    div.ba-left-menu-header
+        .back-button(*ngIf="levelsIndex.length > 0", (click)="goBack()")
+            i.fas.fa-arrow-left
+            span Volver
+        .icon.close-menu((click)="closeMenu()")
+            i.fas.fa-times
+    div.ba-left-menu-content
+        div.menu-item(*ngFor="let cat of categoriesMenu; let i = index", (click)="goSubLevel(cat, i)", [@menuItemAnimation], [style.top.px]="50*i")
+            span {{cat.name}}
+            i.right-icon(*ngIf="cat.sublevels").fas.fa-chevron-right

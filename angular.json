@@ -25,6 +25,9 @@
             "styles": [
               "src/styles.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["./src/app/styles"]
+            },
             "scripts": []
           },
           "configurations": {
