@@ -1,4 +1,4 @@
-ba-filters([filters]="filters")
+ba-filters([filters]="filters", [products]="products")
 ba-product-order((orderChanged)="onOrderChanged($event)")
 div(*ngFor="let product of products | productFilter: filters | orderBy: order.orderField : order.reverse")
     div Nombre: {{product.name}} - Precio ${{product.price}} - Disponible: {{product.available}} - Cantidad: {{product.quantity}}
