@@ -9,6 +9,16 @@ export class ProductService {
 
   constructor(public http: HttpClient) {}
 
+  public getProductsByCategory(categoryId: number) {
+    return this.http.get('/assets/data/products.json').toPromise().then(
+      (data: { products: Array<Product> }) => {
+        const products = [ ...data.products ]
+        return products.filter( p => p.sublevel_id === categoryId );
+      }
+    );
+  }
+
+  /*
   public getProducts() {
     return this.http.get('/assets/data/products.json').toPromise().then(
       (data: { products: Array<Product> }) => {
@@ -16,6 +26,17 @@ export class ProductService {
         return this.products;
       }
     );
-  }
+  }*/
 
+  /*public getProductsCached() {
+    return this.products;
+  }
+*/
+/*
+  public getProductsByCategory(categoryId: number) {
+    return this.products.filter((product: Product) => {
+      return product.sublevel_id === categoryId;
+    });
+  }
+*/
 }

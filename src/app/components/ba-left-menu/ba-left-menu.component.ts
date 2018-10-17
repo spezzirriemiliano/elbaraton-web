@@ -3,6 +3,7 @@ import { menuAnimation, layoutAnimation, menuItemAnimation } from './ba-left-men
 import { MenuService } from '@services/menu.service';
 import { Category } from '../../interfaces';
 import { CategoryService } from '@services/category.service';
+import { Router  } from '@angular/router';
 
 
 @Component({
@@ -11,13 +12,16 @@ import { CategoryService } from '@services/category.service';
   styleUrls: ['./ba-left-menu.component.scss'],
   animations: [ menuAnimation, layoutAnimation, menuItemAnimation ]
 })
-export class BaLeftMenuComponent implements OnInit{
+export class BaLeftMenuComponent implements OnInit {
 
   categories: Array<Category>;
   levelsIndex = [];
   categoriesMenu: Array<Category>;
 
-  constructor(public menuService: MenuService, public categoryService: CategoryService) {
+  constructor(
+    public menuService: MenuService,
+    public categoryService: CategoryService,
+    private router: Router ) {
     this.levelsIndex = [];
   }
 
@@ -30,10 +34,13 @@ export class BaLeftMenuComponent implements OnInit{
     );
   }
 
-  public goSubLevel(cat, index) {
-    if(cat.sublevels) {
+  public goSubLevel(category: Category, index) {
+    if (category.sublevels) {
       this.levelsIndex.push(index);
       this.updateCategoriesMenu();
+    } else {
+      this.router.navigate(['category', category.id]);
+      this.closeMenu();
     }
   }
 
@@ -50,7 +57,7 @@ export class BaLeftMenuComponent implements OnInit{
     this.categoriesMenu = categories;
   }
 
-  closeMenu(){
+  closeMenu() {
     this.menuService.closeLeftMenu();
     this.categoriesMenu = this.categories;
     this.levelsIndex = [];
