@@ -6,9 +6,21 @@ export interface Category {
 
 export interface Product {
     quantity: number
-    price: string
+    price: number
     available: boolean
     sublevel_id: number
     name: string
     id: string
+}
+
+export interface FilterProduct {
+    available: boolean
+    minPrice: number
+    maxPrice: number
+    stockQuantity: number
+}
+
+export interface ProductOrder {
+    orderField: string
+    reverse: boolean
 }

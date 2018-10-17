@@ -13,7 +13,12 @@ export class ProductService {
     return this.http.get('/assets/data/products.json').toPromise().then(
       (data: { products: Array<Product> }) => {
         const products = [ ...data.products ]
-        return products.filter( p => p.sublevel_id === categoryId );
+        return products
+          .filter( p => p.sublevel_id === categoryId )
+          .map(p => {
+            p.price = parseInt(p.price.toString().replace(/([$,])/g, ''))
+            return p;
+          })
       }
     );
   }

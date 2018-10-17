@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
+import { FilterProduct } from '../../../interfaces';
+
 
 @Component({
   selector: 'ba-filters',
@@ -7,5 +9,6 @@ import { Component } from '@angular/core';
 })
 export class BaFiltersComponent {
 
-  
+    @Input() filters: FilterProduct;
+
 }

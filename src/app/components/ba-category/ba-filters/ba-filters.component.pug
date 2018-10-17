@@ -1,1 +1,11 @@
-div Filtros
+div.ba-filters-container Filtros
+    div
+        div Disponible
+        input(type="checkbox", [(ngModel)]="filters.available")
+    div
+        div Min Price
+        input(type="number", [(ngModel)]="filters.minPrice")
+        div Max Price
+        input(type="number", [(ngModel)]="filters.maxPrice")
+    div Cant Stock
+        input(type="number", [(ngModel)]="filters.stockQuantity")

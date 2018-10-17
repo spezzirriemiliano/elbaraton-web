@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd } from '@angular/router';
 import { ProductService } from '@services/product.service';
-import { Product } from '../../interfaces';
+import { Product, FilterProduct, ProductOrder } from '../../interfaces';
 
 @Component({
   selector: 'ba-category',
@@ -11,6 +11,16 @@ import { Product } from '../../interfaces';
 export class BaCategoryComponent implements OnInit{
 
   products: Array<Product>;
+  filters: FilterProduct = {
+    available: true,
+    minPrice: 0,
+    maxPrice: 999,
+    stockQuantity: 150
+  };
+  order: ProductOrder = {
+    orderField: '',
+    reverse: false
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -24,9 +34,15 @@ export class BaCategoryComponent implements OnInit{
     });
   }
 
-  getProducts(categoryId: number){
+  getProducts(categoryId: number) {
     this.productService.getProductsByCategory(categoryId).then((products: Array<Product>) => {
       this.products = products
     });
   }
+
+  onOrderChanged(order: ProductOrder) {
+    this.order = order;
+    console.log(this.order);
+  }
+
 }
