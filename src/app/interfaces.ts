@@ -14,7 +14,7 @@ export interface Product {
 }
 
 export interface FilterProduct {
-    available: boolean
+    available: boolean | string
     minPrice: number
     maxPrice: number
     stockQuantity: number

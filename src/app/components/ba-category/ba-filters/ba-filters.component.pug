@@ -1,11 +1,11 @@
-div.ba-filters-container Filtros
+div.ba-filters-container
     div
-        div Disponible
-        input(type="checkbox", [(ngModel)]="filters.available")
-    div
-        div Min Price
-        input(type="number", [(ngModel)]="filters.minPrice")
-        div Max Price
-        input(type="number", [(ngModel)]="filters.maxPrice")
-    div Cant Stock
-        input(type="number", [(ngModel)]="filters.stockQuantity")
+        mat-form-field
+            mat-select(placeholder="Disponible", [(ngModel)]="filters.available")
+                mat-option([value]="'all'") Todos
+                mat-option([value]="true") Disponible
+                mat-option([value]="false") No Disponible
+    div Precio
+        ng5-slider([(value)]="filters.minPrice", [(highValue)]="filters.maxPrice", [options]="optionsRangePrice", *ngIf="optionsRangePrice.floor != optionsRangePrice.ceil")
+    div Cantidad
+        ng5-slider([(value)]="filters.stockQuantity", [options]="optionsRangeQuantity", *ngIf="optionsRangeQuantity.ceil > 1")

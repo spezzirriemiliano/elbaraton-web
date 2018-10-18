@@ -25,6 +25,11 @@ import { OrderByPipe } from './pipes/order.by.pipe';
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 
+// Material modules
+import { ElBaratonMaterialModule } from './material.module';
+
+import { Ng5SliderModule } from 'ng5-slider';
+import { CurrencyPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -43,12 +48,15 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ElBaratonMaterialModule,
+    Ng5SliderModule
   ],
   providers: [
     MenuService,
     CategoryService,
-    ProductService
+    ProductService,
+    CurrencyPipe
   ],
   bootstrap: [AppComponent]
 })

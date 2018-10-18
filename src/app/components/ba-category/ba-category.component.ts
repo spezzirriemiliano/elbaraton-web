@@ -12,10 +12,10 @@ export class BaCategoryComponent implements OnInit{
 
   products: Array<Product>;
   filters: FilterProduct = {
-    available: true,
+    available: 'all',
     minPrice: 0,
-    maxPrice: 999,
-    stockQuantity: 150
+    maxPrice: 0,
+    stockQuantity: 0
   };
   order: ProductOrder = {
     orderField: '',
@@ -42,7 +42,6 @@ export class BaCategoryComponent implements OnInit{
 
   onOrderChanged(order: ProductOrder) {
     this.order = order;
-    console.log(this.order);
   }
 
 }

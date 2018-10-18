@@ -1,5 +1,8 @@
-ba-filters([filters]="filters", [products]="products")
-ba-product-order((orderChanged)="onOrderChanged($event)")
-div(*ngFor="let product of products | productFilter: filters | orderBy: order.orderField : order.reverse")
-    div Nombre: {{product.name}} - Precio ${{product.price}} - Disponible: {{product.available}} - Cantidad: {{product.quantity}}
-//div Productos: {{products | json}}
+.container.ba-category-container
+        .row
+            .col-sm-3
+                ba-filters([filters]="filters", [products]="products")
+                ba-product-order((orderChanged)="onOrderChanged($event)")
+            .col-sm-9.products-list-container
+                div(*ngFor="let product of products | productFilter: filters | orderBy: order.orderField : order.reverse")
+                    div Nombre: {{product.name}} - Precio ${{product.price}} - Disponible: {{product.available}} - Cantidad: {{product.quantity}}

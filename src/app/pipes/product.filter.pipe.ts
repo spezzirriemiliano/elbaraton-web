@@ -11,7 +11,8 @@ export class ProductFilterPipe implements PipeTransform {
             return items;
         }
         return items.filter((item) => {
-            return item.available === filter.available && 
+            return (item.available === filter.available ||
+                filter.available == 'all') && 
                 item.price >= filter.minPrice &&
                 item.price <= filter.maxPrice &&
                 item.quantity >= filter.stockQuantity
