@@ -4,7 +4,8 @@ import {
     MatCheckboxModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatOptionModule
+    MatOptionModule,
+    MatRippleModule
 } from '@angular/material';
 
 @NgModule({
@@ -13,14 +14,16 @@ import {
       MatCheckboxModule,
       MatSelectModule,
       MatFormFieldModule,
-      MatOptionModule
+      MatOptionModule,
+      MatRippleModule
     ],
   exports: [
       MatButtonModule,
       MatCheckboxModule,
       MatSelectModule,
       MatFormFieldModule,
-      MatOptionModule
+      MatOptionModule,
+      MatRippleModule
     ],
 })
 export class ElBaratonMaterialModule { }

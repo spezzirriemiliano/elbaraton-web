@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd } from '@angular/router';
 import { ProductService } from '@services/product.service';
-import { Product, FilterProduct, ProductOrder } from '../../interfaces';
+import { Product, FilterProduct, ProductOrder } from '@interfaces/interfaces';
 
 @Component({
   selector: 'ba-category',

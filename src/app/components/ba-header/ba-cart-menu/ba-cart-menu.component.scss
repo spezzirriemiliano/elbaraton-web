@@ -3,7 +3,7 @@
 $toolbar-color: $gray2;
 $toolbar-border-color: #dedede;
 
-.ba-left-menu-layout {
+.ba-cart-menu-layout {
     position: fixed;
     left: 0;
     top: 0;
@@ -13,9 +13,10 @@ $toolbar-border-color: #dedede;
     opacity: 0.7;
     z-index: 10;
 }
-.ba-left-menu-container {
+
+.ba-cart-menu-container {
     position: fixed;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 320px;
     height: 100%;
@@ -23,25 +24,16 @@ $toolbar-border-color: #dedede;
     overflow: hidden;
     z-index: 11;
 
-    .ba-left-menu-header {
+    .ba-cart-menu-header {
         height: 50px;
 
-        .back-button {
-            padding: 15px;
-            color: #1f1f1f;
+        .cart-text {
+            position: absolute;
+            font-size: 20px;
             width: calc(100% - 50px);
-            cursor: pointer;
-
-            &:hover {
-                background-color: $gray2;
-                color: #000000;
-            }
-
-            span {
-                margin-left: 10px;
-                font-weight: 600;
-            }
-
+            padding: 13px;
+            text-align: center;
+            color: #f19f0b;
         }
 
         .close-menu {
@@ -63,33 +55,14 @@ $toolbar-border-color: #dedede;
         }
     }
 
-    .ba-left-menu-content {
+    .ba-cart-menu-content {
 
         width: 100%;
         height: calc(100% - 51px);
         position: relative;
         overflow-y: scroll;
         overflow-x: hidden;
-        .menu-item {
-            padding: 16px;
-            position: absolute;
-            color: #1f1f1f;
-            cursor: pointer;
-            width: 100%;
-            left: 0;
-
-            &:hover {
-                background-color: $gray2;
-                color: #000000;
-            }
-
-            .right-icon {
-                font-size: 18px;
-                right: 20px;
-                top: 16px;
-                position: absolute;
-            }
-        }
+        
     }
 
 }

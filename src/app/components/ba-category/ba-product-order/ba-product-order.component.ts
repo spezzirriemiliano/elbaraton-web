@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { ProductOrder } from '../../../interfaces';
+import { ProductOrder } from '@interfaces/interfaces';
 
 
 @Component({

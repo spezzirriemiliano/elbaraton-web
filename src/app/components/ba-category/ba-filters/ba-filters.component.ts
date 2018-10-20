@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges} from '@angular/core';
-import { FilterProduct, Product } from '../../../interfaces';
+import { FilterProduct, Product } from '@interfaces/interfaces';
 import { Options } from 'ng5-slider';
 import { CurrencyPipe } from '@angular/common';
 

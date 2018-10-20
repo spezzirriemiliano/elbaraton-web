@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { menuAnimation, layoutAnimation, menuItemAnimation } from './ba-left-menu.animations';
 import { MenuService } from '@services/menu.service';
-import { Category } from '../../interfaces';
+import { Category } from '@interfaces/interfaces';
 import { CategoryService } from '@services/category.service';
 import { Router  } from '@angular/router';
 

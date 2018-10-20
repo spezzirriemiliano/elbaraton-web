@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Category } from '../interfaces';
+import { Category } from '@interfaces/interfaces';
 
 @Injectable()
 export class CategoryService {

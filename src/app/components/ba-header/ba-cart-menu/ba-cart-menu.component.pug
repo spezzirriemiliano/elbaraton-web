@@ -1,0 +1,11 @@
+div.ba-cart-menu-layout([@layoutAnimation], *ngIf="menuService.getShowCartMenu()", (click)="closeMenu()")
+div.ba-cart-menu-container([@menuAnimation], *ngIf="menuService.getShowCartMenu()")
+    div.ba-cart-menu-header
+        .cart-text
+            i.fas.fa-shopping-cart
+            span  Carrito de compras
+        .icon.close-menu((click)="closeMenu()", matRipple)
+            i.fas.fa-times
+    div.ba-cart-menu-content
+        div(*ngFor="let cp of cartService.getCartproducts()")
+            div {{cp.name}}

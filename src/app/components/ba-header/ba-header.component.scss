@@ -9,6 +9,10 @@
     padding: 5px 0 5px 0px;
     background-color: $toolbar-color;
     border-bottom: 1px solid #dedede;
+    position: fixed;
+    top: 0;
+    background-color: #f7f7f7;
+    z-index: 5;
 
     .icon {
         display: inline-block;
@@ -32,13 +36,27 @@
             cursor: pointer;
             width: 154px;
             margin-left: 64px;
-            margin-top: 4px;
         }
     }
 
     .cart-icon {
         top: 5px;
         right: 5px;
+
+        .products-count {
+            position: absolute;
+            height: 15px;
+            width: 20px;
+            color: white;
+            left: 0px;
+            font-size: 13px;
+            background-color: #ef0000;
+            border-radius: 8px;
+            font-weight: bold;
+            line-height: 13px;
+            bottom: 0;
+            border: 1px solid #f7f7f7;
+        }
     }
 
 }

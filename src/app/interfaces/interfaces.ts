@@ -25,3 +25,9 @@ export interface ProductOrder {
     orderField: string
     reverse: boolean
 }
+
+export interface CartProduct {
+    productId: string
+    name: string
+    quantity: number
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuService } from '@services/menu.service';
+import { CartService } from '@services/cart.service';
 
 @Component({
   selector: 'ba-header',
@@ -8,5 +9,8 @@ import { MenuService } from '@services/menu.service';
 })
 export class BaHeaderComponent {
 
-  constructor(public menuService: MenuService){}
+  constructor(
+    public menuService: MenuService,
+    public cartService: CartService
+  ){}
 }

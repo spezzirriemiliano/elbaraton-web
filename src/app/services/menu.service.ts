@@ -4,6 +4,7 @@ import { Injectable, Inject } from '@angular/core';
 export class MenuService {
 
   showLeftMenu: boolean = false;
+  showCartMenu: boolean = false;
 
   constructor() {}
 
@@ -21,6 +22,22 @@ export class MenuService {
 
   getShowLeftMenu() {
       return this.showLeftMenu;
+  }
+
+  toggleCartMenu() {
+    this.showCartMenu = !this.showCartMenu;
+  }
+
+  closeCartMenu() {
+    this.showCartMenu = false;
+  }
+
+  openCartMenu() {
+    this.showCartMenu = true;
+  }
+
+  getShowCartMenu() {
+      return this.showCartMenu;
   }
 
 }

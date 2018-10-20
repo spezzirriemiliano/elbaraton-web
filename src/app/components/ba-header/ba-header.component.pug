@@ -1,7 +1,10 @@
+ba-left-menu
+ba-cart-menu
 div.ba-header-container
-    .icon.menu-icon((click)="menuService.openLeftMenu()")
+    .icon.menu-icon((click)="menuService.openLeftMenu()", matRipple)
         i.fas.fa-bars
     .img-container
         img(src="/assets/elbaraton2.png", routerLink="/home", routerLinkActive="false")
-    .icon.cart-icon
+    .icon.cart-icon((click)="menuService.openCartMenu()", matRipple)
+        div.products-count(*ngIf="cartService.countProducts() > 0") {{cartService.countProducts()}}
         i.fas.fa-cart-arrow-down

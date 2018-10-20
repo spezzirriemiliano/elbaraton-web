@@ -3,6 +3,10 @@
         img(src="https://http2.mlstatic.com/pc-D_Q_NP_897681-MLA28125624925_092018-X.webp")
     .info-container
         .name {{product.name}}
-        .price {{product.price}}
-        .available Producto{{product.available? '': ' no'}} disponible
+        .price {{product.price | currency: '$ ' : 'symbol' : '1.0-0'}}
+        .available Producto{{product.available? '': ' no'}} disponible para envío
         .stock {{product.quantity}} en stock
+    .cart-button-container
+        button(mat-stroked-button, [disabled]="!product.available", (click)="cartService.addProduct(product)")
+            i.fas.fa-cart-plus
+            span  Agregar
