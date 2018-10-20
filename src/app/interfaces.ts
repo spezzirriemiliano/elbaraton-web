@@ -18,6 +18,7 @@ export interface FilterProduct {
     minPrice: number
     maxPrice: number
     stockQuantity: number
+    textField: string
 }
 
 export interface ProductOrder {

@@ -12,6 +12,7 @@ import { BaHomeComponent } from '@components/ba-home/ba-home.component';
 import { BaCategoryComponent } from '@components/ba-category/ba-category.component';
 import { BaFiltersComponent } from '@components/ba-category/ba-filters/ba-filters.component';
 import { BaProductOrderComponent } from '@components/ba-category/ba-product-order/ba-product-order.component';
+import { BaProductItemComponent } from '@components/ba-category/ba-product-item/ba-product-item.component';
 
 // Services
 import { MenuService } from '@services/menu.service';
@@ -31,6 +32,7 @@ import { ElBaratonMaterialModule } from './material.module';
 import { Ng5SliderModule } from 'ng5-slider';
 import { CurrencyPipe } from '@angular/common';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,7 @@ import { CurrencyPipe } from '@angular/common';
     BaCategoryComponent,
     BaFiltersComponent,
     BaProductOrderComponent,
+    BaProductItemComponent,
     ProductFilterPipe,
     OrderByPipe
   ],

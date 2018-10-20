@@ -3,6 +3,8 @@
             .col-sm-3
                 ba-filters([filters]="filters", [products]="products")
                 ba-product-order((orderChanged)="onOrderChanged($event)")
-            .col-sm-9.products-list-container
-                div(*ngFor="let product of products | productFilter: filters | orderBy: order.orderField : order.reverse")
-                    div Nombre: {{product.name}} - Precio ${{product.price}} - Disponible: {{product.available}} - Cantidad: {{product.quantity}}
+            .col-sm-9
+                .search-bar
+                    input([(ngModel)]="filters.textField", type="text", placeholder="Buscar productos")
+                div.products-list-container(*ngFor="let product of products | productFilter: filters | orderBy: order.orderField : order.reverse")
+                    ba-product-item([product]="product")

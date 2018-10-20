@@ -15,7 +15,8 @@ export class ProductFilterPipe implements PipeTransform {
                 filter.available == 'all') && 
                 item.price >= filter.minPrice &&
                 item.price <= filter.maxPrice &&
-                item.quantity >= filter.stockQuantity
+                item.quantity >= filter.stockQuantity && 
+                item.name.toLowerCase().trim().indexOf(filter.textField.toLowerCase().trim()) !== -1
         });
     }
 }

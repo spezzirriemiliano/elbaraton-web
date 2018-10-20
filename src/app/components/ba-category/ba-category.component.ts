@@ -15,7 +15,8 @@ export class BaCategoryComponent implements OnInit{
     available: 'all',
     minPrice: 0,
     maxPrice: 0,
-    stockQuantity: 0
+    stockQuantity: 0,
+    textField: ''
   };
   order: ProductOrder = {
     orderField: '',

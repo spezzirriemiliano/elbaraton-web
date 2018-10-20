@@ -1,11 +1,14 @@
 div.ba-filters-container
-    div
-        mat-form-field
-            mat-select(placeholder="Disponible", [(ngModel)]="filters.available")
+    .individual-filter-container
+        .filter-title Disponibilidad
+        mat-form-field.select-container
+            mat-select([(ngModel)]="filters.available")
                 mat-option([value]="'all'") Todos
                 mat-option([value]="true") Disponible
                 mat-option([value]="false") No Disponible
-    div Precio
-        ng5-slider([(value)]="filters.minPrice", [(highValue)]="filters.maxPrice", [options]="optionsRangePrice", *ngIf="optionsRangePrice.floor != optionsRangePrice.ceil")
-    div Cantidad
-        ng5-slider([(value)]="filters.stockQuantity", [options]="optionsRangeQuantity", *ngIf="optionsRangeQuantity.ceil > 1")
+    .individual-filter-container(*ngIf="optionsRangePrice.floor != optionsRangePrice.ceil")
+        .filter-title Precio
+        ng5-slider([(value)]="filters.minPrice", [(highValue)]="filters.maxPrice", [options]="optionsRangePrice")
+    .individual-filter-container(*ngIf="optionsRangeQuantity.ceil > 1")
+        .filter-title Cantidad
+        ng5-slider([(value)]="filters.stockQuantity", [options]="optionsRangeQuantity")

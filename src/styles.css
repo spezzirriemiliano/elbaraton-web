@@ -1,5 +1,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "./app/styles/bootstrap_grid_system.css";
+@import "./app/styles/slider-styles.scss";
 
 html {
     height: 100%;

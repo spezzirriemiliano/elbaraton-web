@@ -1,0 +1,8 @@
+.product-item-container
+    .img-container
+        img(src="https://http2.mlstatic.com/pc-D_Q_NP_897681-MLA28125624925_092018-X.webp")
+    .info-container
+        .name {{product.name}}
+        .price {{product.price}}
+        .available Producto{{product.available? '': ' no'}} disponible
+        .stock {{product.quantity}} en stock
