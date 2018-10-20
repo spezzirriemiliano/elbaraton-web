@@ -5,7 +5,8 @@ import {
     MatSelectModule,
     MatFormFieldModule,
     MatOptionModule,
-    MatRippleModule
+    MatRippleModule,
+    MatTooltipModule
 } from '@angular/material';
 
 @NgModule({
@@ -15,7 +16,8 @@ import {
       MatSelectModule,
       MatFormFieldModule,
       MatOptionModule,
-      MatRippleModule
+      MatRippleModule,
+      MatTooltipModule
     ],
   exports: [
       MatButtonModule,
@@ -23,7 +25,8 @@ import {
       MatSelectModule,
       MatFormFieldModule,
       MatOptionModule,
-      MatRippleModule
+      MatRippleModule,
+      MatTooltipModule
     ],
 })
 export class ElBaratonMaterialModule { }

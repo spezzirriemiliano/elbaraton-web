@@ -12,25 +12,44 @@ export class CartService {
 
 
   public addProduct(product: Product) {
-    
-    const indexCartProduct = this.getCartProductIndex(product.id);
-
-    if (indexCartProduct > -1) {
-      const cartProduct = this.cart[indexCartProduct];
-      if (cartProduct.quantity < this.productService.getMaxProductStock(product.id)) {
-        cartProduct.quantity ++;
-      }
+    if (this.cartProductExist(product.id)) {
+      this.addExistingProduct(product.id);
     } else {
-      this.cart.push({
-        productId: product.id,
-        quantity: 1,
-        name: product.name
-      });
+      this.addNewProduct(product);
     }
   }
 
-  private getCartProductIndex(productId: string) : number {
-    return this.cart.findIndex(cp => cp.productId === productId);
+  public addExistingProduct(id: string) {
+    const cartProduct : CartProduct = this.cart.find(p => p.productId === id);
+    if (cartProduct.quantity < this.productService.getMaxProductStock(id)) {
+      cartProduct.quantity ++;
+    }
+  }
+
+  public removeExistingProduct(id: string) {
+
+    const cartProductIndex : number = this.cart.findIndex(p => p.productId === id);
+    if(cartProductIndex > -1) {
+      if(this.cart[cartProductIndex].quantity > 1) {
+        this.cart[cartProductIndex].quantity--;
+      } else {
+        this.cart.splice(cartProductIndex, 1);
+      }
+    }
+    
+  }
+
+  public addNewProduct(product: Product) {
+    this.cart.push({
+      productId: product.id,
+      quantity: 1,
+      name: product.name,
+      price: product.price
+    });
+  }
+
+  private cartProductExist(productId: string) : boolean {
+    return this.cart.findIndex(cp => cp.productId === productId) > -1;
   }
 
   public getCartproducts() {
@@ -41,4 +60,17 @@ export class CartService {
     return this.cart.length;
   }
 
+  public getTotal() {
+    return this.cart.reduce((preValue, currentValue) => {
+      return preValue + (currentValue.price * currentValue.quantity);
+    }, 0)
+  }
+
+  public saveCart(){
+    localStorage.setItem('cartProducts', JSON.stringify(this.cart));
+  }
+
+  public getSavedCart() {
+    return JSON.parse(localStorage.getItem('cartProducts'));
+  }
 }

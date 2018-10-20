@@ -18,7 +18,7 @@ $toolbar-border-color: #dedede;
     position: fixed;
     right: 0px;
     top: 0px;
-    width: 320px;
+    width: 412px;
     height: 100%;
     background-color: #fff;
     overflow: hidden;
@@ -26,6 +26,8 @@ $toolbar-border-color: #dedede;
 
     .ba-cart-menu-header {
         height: 50px;
+        background-color: #efefef;
+        border-bottom: 1px solid #c5c5c5;
 
         .cart-text {
             position: absolute;
@@ -60,9 +62,62 @@ $toolbar-border-color: #dedede;
         width: 100%;
         height: calc(100% - 51px);
         position: relative;
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: hidden;
         
+        .cart-product {
+            padding: 5px;
+            height: 65px;
+            position: relative;
+            padding: 17px;
+
+            .action-button {
+                color: #c5c5c5;
+                cursor: pointer;
+                font-size: 13px;
+
+                &:hover {
+                    color: #676767;
+                }
+            }
+
+            .count-product {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .product-name {
+                position: absolute;
+                left: 75px;
+                top: 0;
+                display: table;
+                width: calc(100% - 165px);
+                height: 65px;
+
+                span {
+                    vertical-align: middle;
+                    display: table-cell;
+                }
+            }
+
+            .product-price {
+                position: absolute;
+                right: 5px;
+                top: 24px;
+                display: inline-block;
+                width: 80px;
+                text-align: right;
+            }
+
+            .product-divider {
+                height: 1px;
+                width: calc(100% - 40px);
+                border-bottom: 1px solid #d8d8d8;
+                position: absolute;
+                bottom: 0;
+            }
+
+        }
     }
 
 }

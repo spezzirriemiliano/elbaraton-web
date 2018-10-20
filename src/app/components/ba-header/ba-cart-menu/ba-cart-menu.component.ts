@@ -34,4 +34,16 @@ export class BaCartMenuComponent implements OnInit {
     this.menuService.closeCartMenu();
   }
 
+  addExistingProduct(id: string) {
+    this.cartService.addExistingProduct(id);
+  }
+
+  removeExistingProduct(id: string) {
+    this.cartService.removeExistingProduct(id);
+  }
+
+  displayTotal() {
+    return this.cartService.getTotal();
+  }
+
 }

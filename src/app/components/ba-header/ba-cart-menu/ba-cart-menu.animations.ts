@@ -3,12 +3,12 @@ import { trigger, transition, animate, style } from '@angular/animations';
 export const menuAnimation = trigger(
     'menuAnimation', [
       transition(':enter', [
-        style({right: -320}),
+        style({right: -412}),
         animate('200ms', style({right: 0}))
       ]),
       transition(':leave', [
         style({right: 0}),
-        animate('200ms', style({right: -320}))
+        animate('200ms', style({right: -412}))
       ])
     ]
   );
