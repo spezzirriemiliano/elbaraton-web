@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { menuAnimation, layoutAnimation } from './ba-cart-menu.animations';
 import { MenuService } from '@services/menu.service';
 import { CartService } from '@services/cart.service';
-
+import { CardData } from '@interfaces/interfaces';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ba-cart-menu',
@@ -12,6 +13,17 @@ import { CartService } from '@services/cart.service';
 })
 export class BaCartMenuComponent implements OnInit {
 
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+
+  cardData: CardData = {
+    number: 12321,
+    name: undefined,
+    secureCode: undefined,
+    expireDate: undefined
+  };
 
   constructor(
     public menuService: MenuService,
@@ -19,27 +31,11 @@ export class BaCartMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*
-    this.categoryService.getCategories().then(
-      (data: Array<Category>) => {
-        this.categories = data;
-        this.updateCategoriesMenu();
-      }
-    );
-    */
+    this.cartService.getSavedCart();
   }
-
 
   closeMenu() {
     this.menuService.closeCartMenu();
-  }
-
-  addExistingProduct(id: string) {
-    this.cartService.addExistingProduct(id);
-  }
-
-  removeExistingProduct(id: string) {
-    this.cartService.removeExistingProduct(id);
   }
 
   displayTotal() {

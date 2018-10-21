@@ -1,0 +1,7 @@
+i.fas.fa-minus-circle.action-button((click)="removeExistingProduct(cartProduct.productId)", matTooltip="Eliminar")
+.count-product {{cartProduct.quantity}}
+i.fas.fa-plus-circle.action-button((click)="addExistingProduct(cartProduct.productId)", matTooltip="Agregar")
+.product-name
+    span {{cartProduct.name}}
+.product-price {{cartProduct.price | currency: '$ ' : 'symbol' : '1.0-0'}}
+.product-divider

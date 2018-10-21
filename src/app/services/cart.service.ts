@@ -23,6 +23,7 @@ export class CartService {
     const cartProduct : CartProduct = this.cart.find(p => p.productId === id);
     if (cartProduct.quantity < this.productService.getMaxProductStock(id)) {
       cartProduct.quantity ++;
+      this.saveCart();
     }
   }
 
@@ -35,6 +36,7 @@ export class CartService {
       } else {
         this.cart.splice(cartProductIndex, 1);
       }
+      this.saveCart();
     }
     
   }
@@ -46,6 +48,7 @@ export class CartService {
       name: product.name,
       price: product.price
     });
+    this.saveCart();
   }
 
   private cartProductExist(productId: string) : boolean {
@@ -71,6 +74,10 @@ export class CartService {
   }
 
   public getSavedCart() {
-    return JSON.parse(localStorage.getItem('cartProducts'));
+    this.cart = JSON.parse(localStorage.getItem('cartProducts'));
+  }
+
+  public removeSavedCart() {
+    localStorage.removeItem('cartProducts');
   }
 }

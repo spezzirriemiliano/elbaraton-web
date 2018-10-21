@@ -1,20 +1,26 @@
-div.ba-cart-menu-layout([@layoutAnimation], *ngIf="menuService.getShowCartMenu()", (click)="closeMenu()")
-div.ba-cart-menu-container([@menuAnimation], *ngIf="menuService.getShowCartMenu()")
-    div.ba-cart-menu-header
+.ba-cart-menu-layout([@layoutAnimation], *ngIf="menuService.getShowCartMenu()", (click)="closeMenu()")
+.ba-cart-menu-container([@menuAnimation], *ngIf="menuService.getShowCartMenu()")
+    .ba-cart-menu-header
         .cart-text
             i.fas.fa-shopping-cart
             span  Carrito de compras
         .icon.close-menu((click)="closeMenu()", matRipple)
             i.fas.fa-times
-    div.ba-cart-menu-content
-        div.cart-product(*ngFor="let cp of cartService.getCartproducts()")
-            i.fas.fa-minus-circle.action-button((click)="removeExistingProduct(cp.productId)", matTooltip="Eliminar")
-            .count-product {{cp.quantity}}
-            i.fas.fa-plus-circle.action-button((click)="addExistingProduct(cp.productId)", matTooltip="Agregar")
-            .product-name
-                span {{cp.name}}
-            .product-price {{cp.price | currency: '$ ' : 'symbol' : '1.0-0'}}
-            .product-divider
+    .ba-cart-menu-content
+        .cart-product(*ngFor="let cartProduct of cartService.getCartproducts()")
+            ba-cart-item([cartProduct]="cartProduct")
         .cart-total
-            div Total
-            div {{displayTotal()}}
+            .total-text Total
+            .amount-text {{displayTotal() | currency: '$ ' : 'symbol' : '1.0-0'}}
+        .ba-payment-section-container
+            div {{cardData | json}}
+            ba-payment-section([cardData]="cardData")
+        .mail-container
+            mat-form-field
+                input(matInput placeholder="Email", [formControl]="emailFormControl")
+                mat-error(*ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')")
+                    span Ingrese una direccion de email válida
+                mat-error(*ngIf="emailFormControl.hasError('required')")
+                    span El email es <strong>requerido</strong>
+        .buy-button-container
+            button(mat-stroked-button, color="primary") Comprar

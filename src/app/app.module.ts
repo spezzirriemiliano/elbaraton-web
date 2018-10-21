@@ -1,8 +1,10 @@
+// Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
 
 // Components
 import { AppComponent } from './app.component';
@@ -14,6 +16,8 @@ import { BaCategoryComponent } from '@components/ba-category/ba-category.compone
 import { BaFiltersComponent } from '@components/ba-category/ba-filters/ba-filters.component';
 import { BaProductOrderComponent } from '@components/ba-category/ba-product-order/ba-product-order.component';
 import { BaProductItemComponent } from '@components/ba-category/ba-product-item/ba-product-item.component';
+import { BaCartItemComponent } from '@components/ba-header/ba-cart-menu/ba-cart-item/ba-cart-item.component';
+import { BaPaymentSectionComponent } from '@components/ba-header/ba-cart-menu/ba-payment-section/ba-payment-section.component';
 
 // Services
 import { MenuService } from '@services/menu.service';
@@ -31,8 +35,9 @@ import { AppRoutingModule } from './app-routing.module';
 // Material modules
 import { ElBaratonMaterialModule } from './material.module';
 
+
+// Externals
 import { Ng5SliderModule } from 'ng5-slider';
-import { CurrencyPipe } from '@angular/common';
 
 
 
@@ -42,11 +47,13 @@ import { CurrencyPipe } from '@angular/common';
     BaHeaderComponent,
     BaLeftMenuComponent,
     BaCartMenuComponent,
+    BaCartItemComponent,
     BaHomeComponent,
     BaCategoryComponent,
     BaFiltersComponent,
     BaProductOrderComponent,
     BaProductItemComponent,
+    BaPaymentSectionComponent,
     ProductFilterPipe,
     OrderByPipe
   ],
@@ -57,7 +64,8 @@ import { CurrencyPipe } from '@angular/common';
     AppRoutingModule,
     FormsModule,
     ElBaratonMaterialModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    ReactiveFormsModule
   ],
   providers: [
     MenuService,

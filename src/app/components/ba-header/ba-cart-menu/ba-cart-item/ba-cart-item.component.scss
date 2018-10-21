@@ -1,0 +1,45 @@
+.action-button {
+    color: #c5c5c5;
+    cursor: pointer;
+    font-size: 13px;
+
+    &:hover {
+        color: #676767;
+    }
+}
+
+.count-product {
+    display: inline-block;
+    margin: 5px;
+}
+
+.product-name {
+    position: absolute;
+    left: 85px;
+    top: 0;
+    display: table;
+    width: calc(100% - 170px);
+    height: 65px;
+
+    span {
+        vertical-align: middle;
+        display: table-cell;
+    }
+}
+
+.product-price {
+    position: absolute;
+    right: 5px;
+    top: 24px;
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+}
+
+.product-divider {
+    height: 1px;
+    width: calc(100% - 40px);
+    border-bottom: 1px solid #d8d8d8;
+    position: absolute;
+    bottom: 0;
+}

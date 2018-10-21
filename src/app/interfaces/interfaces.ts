@@ -32,3 +32,10 @@ export interface CartProduct {
     quantity: number
     price: number
 }
+
+export interface CardData {
+    number: number
+    name: string
+    expireDate: Date
+    secureCode: number
+}
