@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd } from '@angular/router';
 import { ProductService } from '@services/product.service';
 import { Product, FilterProduct, ProductOrder } from '@interfaces/interfaces';
+import { MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'ba-category',
@@ -18,10 +19,13 @@ export class BaCategoryComponent implements OnInit{
     stockQuantity: 0,
     textField: ''
   };
+
   order: ProductOrder = {
     orderField: '',
     reverse: false
   };
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +37,8 @@ export class BaCategoryComponent implements OnInit{
       const id = parseInt(routeParams.id);
       this.getProducts(id);
     });
+
+    this.paginator._intl.itemsPerPageLabel = 'Productos por página';
   }
 
   getProducts(categoryId: number) {

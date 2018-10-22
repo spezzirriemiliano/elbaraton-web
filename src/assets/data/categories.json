@@ -1,43 +1,85 @@
 { "categories": [
 	{
 		"id": 1,
-		"name": "Bebidas",
+		"name": "Televisores",
 		"sublevels": [
 			{
-				"id": 1,
-				"name": "Gaseosas",
+				"id": 2,
+				"name": "Led",
 				"sublevels": [
 					{
-						"id": 2,
-						"name": "Con azúcar"
+						"id": 3,
+						"name": "4k"
 					},
 					{
-						"id": 3,
-						"name": "Sin azúcar"
+						"id": 4,
+						"name": "Full HD"
+					}
+				]
+			},
+			{
+				"id": 5,
+				"name": "LCD",
+				"sublevels": [
+					{
+						"id": 6,
+						"name": "32 pulgadas"
+					},
+					{
+						"id": 7,
+						"name": "40 pulgadas"
 					}
 				]
 			}
 		]
 	},
 	{
-		"id": 2,
-		"name": "Desayunos",
+		"id": 8,
+		"name": "Computadoras",
 		"sublevels": [
 			{
-				"id": 4,
-				"name": "Fake 1",
+				"id": 9,
+				"name": "Notebooks",
 				"sublevels": [
 					{
-						"id": 5,
-						"name": "Fake 2"
+						"id": 10,
+						"name": "Oficina"
 					},
 					{
-						"id": 6,
-						"name": "Fake 3",
+						"id": 11,
+						"name": "Gamer",
 						"sublevels": [
 							{
-								"id": 7,
-								"name": "Fake 4"
+								"id": 12,
+								"name": "Intel Core i5"
+							},
+							{
+								"id": 13,
+								"name": "Intel Core i7"
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": 14,
+				"name": "Escritorio",
+				"sublevels": [
+					{
+						"id": 15,
+						"name": "Sin Monitor"
+					},
+					{
+						"id": 16,
+						"name": "Con Monitor",
+						"sublevels": [
+							{
+								"id": 17,
+								"name": "4gb de RAM"
+							},
+							{
+								"id": 18,
+								"name": "16 GB de RAM"
 							}
 						]
 					}
@@ -46,30 +88,88 @@
 		]
 	},
 	{
-		"id": 8,
-		"name": "Almuerzos",
+		"id": 19,
+		"name": "Celulares",
 		"sublevels": [
 			{
-				"id": 9,
-				"name": "Fake 5"
+				"id": 20,
+				"name": "Android"
 			},
 			{
-				"id": 10,
-				"name": "Fake 6"
+				"id": 23,
+				"name": "IPhone"
 			}
 		]
 	},
 	{
-		"id": 11,
-		"name": "Vinos",
+		"id": 24,
+		"name": "Componentes",
 		"sublevels": [
 			{
-				"id": 12,
-				"name": "Fake 8"
+				"id": 25,
+				"name": "Disco Rigido",
+				"sublevels": [
+					{
+						"id": 26,
+						"name": "Externo"
+					},
+					{
+						"id": 27,
+						"name": "Interno"
+					}
+				]
 			},
 			{
-				"id": 13,
-				"name": "Fake 9"
+				"id": 28,
+				"name": "Mouse y teclado"
+			}
+		]
+	},
+	{
+		"id": 29,
+		"name": "Consolas",
+		"sublevels": [
+			{
+				"id": 30,
+				"name": "Sony",
+				"sublevels": [
+					{
+						"id": 31,
+						"name": "Playstation 3"
+					},
+					{
+						"id": 32,
+						"name": "Playstation 4"
+					}
+				]
+			},
+			{
+				"id": 33,
+				"name": "Nintendo",
+				"sublevels": [
+					{
+						"id": 34,
+						"name": "Nintendo 64"
+					},
+					{
+						"id": 35,
+						"name": "Nintendo switch"
+					}
+				]
+			},
+			{
+				"id": 36,
+				"name": "Microsoft",
+				"sublevels": [
+					{
+						"id": 37,
+						"name": "Xbox 360"
+					},
+					{
+						"id": 38,
+						"name": "Xbox One"
+					}
+				]
 			}
 		]
 	}

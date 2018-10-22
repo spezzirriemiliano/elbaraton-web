@@ -8,4 +8,4 @@
                     ba-product-order((orderChanged)="onOrderChanged($event)")
                 div.products-list-container(*ngFor="let product of products | productFilter: filters | orderBy: order.orderField : order.reverse")
                     ba-product-item([product]="product")
-                //mat-paginator([length]="products.length", [pageSize]="5", [pageSizeOptions]="[5,10,25,100]")
+                mat-paginator([length]="10", [pageSize]="5", [pageSizeOptions]="[5,10,25,100]")

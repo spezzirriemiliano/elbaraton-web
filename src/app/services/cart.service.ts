@@ -41,6 +41,7 @@ export class CartService {
   public deleteAllExistingProducts(id: string) {
     const cartProductIndex : number = this.cart.findIndex(p => p.productId === id);
     this.cart.splice(cartProductIndex, 1);
+    this.saveCart();
   }
 
   public addNewProduct(product: Product) {

@@ -9,24 +9,6 @@ export class ProductService {
 
   constructor(public http: HttpClient) {}
 
-  /*public getProductsByCategory(categoryId: number) {
-    return this.http.get('/assets/data/products.json').toPromise().then(
-      (data: { products: Array<Product> }) => {
-        const products = data.products.map(p => {
-          p.price = parseInt(p.price.toString().replace(/([$,])/g, ''))
-          return p;
-        });
-        this.products = products;
-        return products.filter( p => p.sublevel_id === categoryId );
-      }
-    );
-  }
-
-  getMaxProductStock(productId: string) {
-    return this.products.find(p => p.id === productId).quantity;
-  }*/
-
-
   public getProductsByCategory(categoryId: number) {
     return new Promise((resolve, reject) => {
       if (this.productsCached) {
@@ -49,6 +31,5 @@ export class ProductService {
   getMaxProductStock(productId: string) {
     return this.productsCached.find(p => p.id === productId).quantity;
   }
-
 
 }

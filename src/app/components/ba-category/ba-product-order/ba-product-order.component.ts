@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { ProductOrder } from '@interfaces/interfaces';
 
 
@@ -7,7 +7,7 @@ import { ProductOrder } from '@interfaces/interfaces';
   templateUrl: './ba-product-order.component.pug',
   styleUrls: ['./ba-product-order.component.scss']
 })
-export class BaProductOrderComponent {
+export class BaProductOrderComponent implements OnInit{
 
   optionsOpened: false;
 
@@ -37,6 +37,10 @@ export class BaProductOrderComponent {
   constructor(){}
 
   @Output() orderChanged = new EventEmitter<ProductOrder>();
+
+  ngOnInit() {
+    this.orderChanged.emit(this.actualOrder);
+  }
 
   setOrder(orderField: string) {
     let reverse = false;

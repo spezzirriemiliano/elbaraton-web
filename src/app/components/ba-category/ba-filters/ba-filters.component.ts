@@ -18,10 +18,7 @@ export class BaFiltersComponent implements OnChanges {
     optionsRangeQuantity: Options = {};
     availableIndex: number = 0;
 
-
-    constructor(private currency: CurrencyPipe) {
-      
-    }
+    constructor(private currency: CurrencyPipe) {}
 
     ngOnChanges(changes) {
       if (changes.products && this.products) {
@@ -52,7 +49,6 @@ export class BaFiltersComponent implements OnChanges {
       this.filters.minPrice = minPrice;
       this.filters.stockQuantity = 1;
       this.filters.available = 'all';
-      
     }
 
 }

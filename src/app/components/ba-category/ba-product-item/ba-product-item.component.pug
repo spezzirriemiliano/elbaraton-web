@@ -1,6 +1,6 @@
 .product-item-container
     .img-container
-        img(src="/assets/pc.webp")
+        img([src]="product.img")
     .info-container
         .name {{product.name}}
         .price {{product.price | currency: '$ ' : 'symbol' : '1.0-0'}}

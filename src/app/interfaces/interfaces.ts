@@ -11,6 +11,7 @@ export interface Product {
     sublevel_id: number
     name: string
     id: string
+    img: string
 }
 
 export interface FilterProduct {
