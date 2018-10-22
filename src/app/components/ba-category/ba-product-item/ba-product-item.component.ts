@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CartService } from '@services/cart.service';
 import { Product } from '@interfaces/interfaces';
+import { MenuService } from '@services/menu.service';
 
 @Component({
   selector: 'ba-product-item',
@@ -11,12 +12,18 @@ export class BaProductItemComponent {
 
   @Input() product;
 
-  constructor(public cartService: CartService) {
-
-  }
+  constructor(
+    public cartService: CartService,
+    public menuService: MenuService
+  ) {}
 
   public addProduct(product: Product) {
-    this.cartService.addProduct(product);
+
+    if(this.cartService.cartProductExist(product.id)) {
+      this.menuService.openCartMenu();
+    } else {
+      this.cartService.addProduct(product);
+    }
   }
 
 }

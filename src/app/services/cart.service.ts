@@ -10,7 +10,6 @@ export class CartService {
 
   constructor(public productService: ProductService) {}
 
-
   public addProduct(product: Product) {
     if (this.cartProductExist(product.id)) {
       this.addExistingProduct(product.id);
@@ -28,7 +27,6 @@ export class CartService {
   }
 
   public removeExistingProduct(id: string) {
-
     const cartProductIndex : number = this.cart.findIndex(p => p.productId === id);
     if(cartProductIndex > -1) {
       if(this.cart[cartProductIndex].quantity > 1) {
@@ -38,7 +36,11 @@ export class CartService {
       }
       this.saveCart();
     }
-    
+  }
+
+  public deleteAllExistingProducts(id: string) {
+    const cartProductIndex : number = this.cart.findIndex(p => p.productId === id);
+    this.cart.splice(cartProductIndex, 1);
   }
 
   public addNewProduct(product: Product) {
@@ -51,7 +53,7 @@ export class CartService {
     this.saveCart();
   }
 
-  private cartProductExist(productId: string) : boolean {
+  public cartProductExist(productId: string) : boolean {
     return this.cart.findIndex(cp => cp.productId === productId) > -1;
   }
 
@@ -74,10 +76,20 @@ export class CartService {
   }
 
   public getSavedCart() {
-    this.cart = JSON.parse(localStorage.getItem('cartProducts'));
+    this.cart = JSON.parse(localStorage.getItem('cartProducts')) || [];
   }
 
   public removeSavedCart() {
     localStorage.removeItem('cartProducts');
+  }
+
+  public fakeBuyCart() {
+    return new Promise((resolve, reject) => {
+      resolve();
+    });
+  }
+
+  public emptyCart() {
+    this.cart = [];
   }
 }

@@ -1,7 +1,6 @@
+@import 'responsive';
 @import 'app-colors';
 
-$toolbar-color: $gray2;
-$toolbar-border-color: #dedede;
 
 .ba-left-menu-layout {
     position: fixed;
@@ -22,6 +21,10 @@ $toolbar-border-color: #dedede;
     background-color: #fff;
     overflow: hidden;
     z-index: 11;
+
+    @include respond-to(ph) {
+        width: 100%;
+    }
 
     .ba-left-menu-header {
         height: 50px;

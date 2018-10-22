@@ -1,4 +1,5 @@
 @import 'app-colors';
+@import 'responsive';
 
 $toolbar-color: $gray2;
 $toolbar-border-color: #dedede;
@@ -23,6 +24,11 @@ $toolbar-border-color: #dedede;
     background-color: #fff;
     overflow: hidden;
     z-index: 11;
+
+    @include respond-to(ph) {
+        width: 100%;
+    }
+
 
     .ba-cart-menu-header {
         height: 50px;
@@ -65,6 +71,22 @@ $toolbar-border-color: #dedede;
         overflow-y: auto;
         overflow-x: hidden;
         
+        .no-products {
+            margin-top: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .keep-buying-container {
+            margin-top: 50px;
+            text-align: center;
+            padding: 15px;
+            .keep-buying {
+                background-color: none;
+                width: 100%;
+            }
+        }
+
         .cart-product {
             padding: 5px;
             height: 65px;
@@ -110,6 +132,11 @@ $toolbar-border-color: #dedede;
                 color: #efece6;
                 font-weight: bold;
                 font-size: 16px;
+
+                &:disabled {
+                    background-color: grey;
+                }
+
             }
         }
     }

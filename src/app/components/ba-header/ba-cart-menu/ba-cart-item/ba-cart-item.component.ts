@@ -23,4 +23,8 @@ export class BaCartItemComponent {
     this.cartService.removeExistingProduct(id);
   }
 
+  deleteAllExistingProducts(id: string) {
+    this.cartService.deleteAllExistingProducts(id);
+  }
+
 }

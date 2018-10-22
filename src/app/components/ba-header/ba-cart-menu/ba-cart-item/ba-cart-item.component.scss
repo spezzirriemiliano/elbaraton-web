@@ -7,6 +7,11 @@
         color: #676767;
     }
 }
+.delete-all-button {
+    position: absolute;
+    right: 7px;
+    top: 28px;
+}
 
 .count-product {
     display: inline-block;
@@ -29,7 +34,7 @@
 
 .product-price {
     position: absolute;
-    right: 5px;
+    right: 32px;
     top: 24px;
     display: inline-block;
     width: 80px;

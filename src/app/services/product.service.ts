@@ -5,11 +5,11 @@ import { Product } from '@interfaces/interfaces';
 @Injectable()
 export class ProductService {
 
-  products: Array<Product> = [];
+  productsCached: Array<Product>;
 
   constructor(public http: HttpClient) {}
 
-  public getProductsByCategory(categoryId: number) {
+  /*public getProductsByCategory(categoryId: number) {
     return this.http.get('/assets/data/products.json').toPromise().then(
       (data: { products: Array<Product> }) => {
         const products = data.products.map(p => {
@@ -24,27 +24,31 @@ export class ProductService {
 
   getMaxProductStock(productId: string) {
     return this.products.find(p => p.id === productId).quantity;
-  }
-
-  /*
-  public getProducts() {
-    return this.http.get('/assets/data/products.json').toPromise().then(
-      (data: { products: Array<Product> }) => {
-        this.products = [ ...data.products ]
-        return this.products;
-      }
-    );
   }*/
 
-  /*public getProductsCached() {
-    return this.products;
-  }
-*/
-/*
+
   public getProductsByCategory(categoryId: number) {
-    return this.products.filter((product: Product) => {
-      return product.sublevel_id === categoryId;
+    return new Promise((resolve, reject) => {
+      if (this.productsCached) {
+        resolve(this.productsCached.filter( p => p.sublevel_id === categoryId ));
+      } else {
+        this.http.get('/assets/data/products.json').toPromise().then(
+          (data: { products: Array<Product> }) => {
+            const products = data.products.map(p => {
+              p.price = parseInt(p.price.toString().replace(/([$,])/g, ''))
+              return p;
+            });
+            this.productsCached = products;
+            resolve(products.filter( p => p.sublevel_id === categoryId ));
+          }
+        );
+      }
     });
   }
-*/
+
+  getMaxProductStock(productId: string) {
+    return this.productsCached.find(p => p.id === productId).quantity;
+  }
+
+
 }

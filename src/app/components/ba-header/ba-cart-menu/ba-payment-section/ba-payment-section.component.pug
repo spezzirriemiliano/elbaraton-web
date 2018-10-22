@@ -1,10 +1,12 @@
 .form-container
-    .title Datos de pago
-    div nombre
-    input(type="text", [(ngModel)]="cardData.name")
-    div numero
-    input(type="text", [(ngModel)]="cardData.number")
-    div fecha
-    input(type="text", [(ngModel)]="cardData.expireDate")
-    div codigo de seguridad
-    input(type="text", [(ngModel)]="cardData.secureCode")
+    .title
+        i.far.fa-credit-card
+        span  Datos de pago
+    mat-form-field.name-field
+        input(matInput, placeholder="Nombre", [(ngModel)]="cardData.name")
+    mat-form-field.number-field
+        input(matInput, placeholder="Numero", [(ngModel)]="cardData.number")
+    mat-form-field.expire-field
+        input(matInput, placeholder="Fecha Venc.", [(ngModel)]="cardData.expireDate")
+    mat-form-field.cvv-field
+        input(matInput, placeholder="CVV", [(ngModel)]="cardData.secureCode")

@@ -2,9 +2,10 @@
         .row
             .col-sm-3
                 ba-filters([filters]="filters", [products]="products")
-                ba-product-order((orderChanged)="onOrderChanged($event)")
             .col-sm-9
                 .search-bar
                     input([(ngModel)]="filters.textField", type="text", placeholder="Buscar productos")
+                    ba-product-order((orderChanged)="onOrderChanged($event)")
                 div.products-list-container(*ngFor="let product of products | productFilter: filters | orderBy: order.orderField : order.reverse")
                     ba-product-item([product]="product")
+                //mat-paginator([length]="products.length", [pageSize]="5", [pageSizeOptions]="[5,10,25,100]")

@@ -7,20 +7,24 @@
         .icon.close-menu((click)="closeMenu()", matRipple)
             i.fas.fa-times
     .ba-cart-menu-content
-        .cart-product(*ngFor="let cartProduct of cartService.getCartproducts()")
-            ba-cart-item([cartProduct]="cartProduct")
-        .cart-total
-            .total-text Total
-            .amount-text {{displayTotal() | currency: '$ ' : 'symbol' : '1.0-0'}}
-        .ba-payment-section-container
-            div {{cardData | json}}
-            ba-payment-section([cardData]="cardData")
-        .mail-container
-            mat-form-field
-                input(matInput placeholder="Email", [formControl]="emailFormControl")
-                mat-error(*ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')")
-                    span Ingrese una direccion de email válida
-                mat-error(*ngIf="emailFormControl.hasError('required')")
-                    span El email es <strong>requerido</strong>
-        .buy-button-container
-            button(mat-stroked-button, color="primary") Comprar
+        div(*ngIf="cartService.countProducts() == 0")
+            .no-products No hay productos en el carrito
+            .keep-buying-container
+                button.keep-buying(mat-stroked-button, color="primary", (click)="closeMenu()") Seguir comprando
+        div(*ngIf="cartService.countProducts() > 0")
+            .cart-product(*ngFor="let cartProduct of cartService.getCartproducts()")
+                ba-cart-item([cartProduct]="cartProduct")
+            .cart-total
+                .total-text Total
+                .amount-text {{displayTotal() | currency: '$ ' : 'symbol' : '1.0-0'}}
+            .ba-payment-section-container
+                ba-payment-section([cardData]="cardData")
+            .mail-container
+                mat-form-field
+                    input(matInput, placeholder="Email", [formControl]="emailFormControl", [(ngModel)]="email")
+                    mat-error(*ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')")
+                        span Ingrese una direccion de email válida
+                    mat-error(*ngIf="emailFormControl.hasError('required')")
+                        span El email es <strong>requerido</strong>
+            .buy-button-container
+                button(mat-stroked-button, color="primary", [disabled]="!validateBuy()", (click)="buyCart()") Comprar

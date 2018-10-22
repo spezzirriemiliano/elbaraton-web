@@ -1,4 +1,8 @@
 div.ba-product-order-container
-    button(type="button", (click)="setOrder('price')") Precio
-    button(type="button", (click)="setOrder('available')") Disponibilidad
-    button(type="button", (click)="setOrder('quantity')") Cantidad
+    .order-label((click)="optionsOpened = !optionsOpened")
+        span {{getLabel(actualOrder.orderField, !actualOrder.reverse)}} 
+        .order-icon.i.fas.fa-chevron-up(*ngIf="!optionsOpened")
+        .order-icon.i.fas.fa-chevron-down(*ngIf="optionsOpened")
+        .options-container(*ngIf="optionsOpened == true")
+            .option(*ngFor="let option of orderOptions", (click)="setOrder(option.field)") {{getLabel(option.field, actualOrder.reverse)}}
+                .selected-option(*ngIf="actualOrder.orderField==option.field")

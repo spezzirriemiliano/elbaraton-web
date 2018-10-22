@@ -1,7 +1,8 @@
-i.fas.fa-minus-circle.action-button((click)="removeExistingProduct(cartProduct.productId)", matTooltip="Eliminar")
+i.fas.fa-minus-circle.action-button((click)="removeExistingProduct(cartProduct.productId)", matTooltip="Eliminar uno")
 .count-product {{cartProduct.quantity}}
-i.fas.fa-plus-circle.action-button((click)="addExistingProduct(cartProduct.productId)", matTooltip="Agregar")
+i.fas.fa-plus-circle.action-button((click)="addExistingProduct(cartProduct.productId)", matTooltip="Agregar uno")
 .product-name
     span {{cartProduct.name}}
 .product-price {{cartProduct.price | currency: '$ ' : 'symbol' : '1.0-0'}}
+i.fas.fa-times-circle.action-button.delete-all-button((click)="deleteAllExistingProducts(cartProduct.productId)", matTooltip="Eliminar todos")
 .product-divider

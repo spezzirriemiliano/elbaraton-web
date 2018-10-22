@@ -7,8 +7,9 @@ import {
     MatOptionModule,
     MatRippleModule,
     MatTooltipModule,
-    MatInputModule
-    
+    MatInputModule,
+    MatSnackBarModule,
+    MatPaginatorModule
 } from '@angular/material';
 
 @NgModule({
@@ -20,7 +21,9 @@ import {
       MatOptionModule,
       MatRippleModule,
       MatTooltipModule,
-      MatInputModule
+      MatInputModule,
+      MatSnackBarModule,
+      MatPaginatorModule
     ],
   exports: [
       MatButtonModule,
@@ -30,7 +33,9 @@ import {
       MatOptionModule,
       MatRippleModule,
       MatTooltipModule,
-      MatInputModule
+      MatInputModule,
+      MatSnackBarModule,
+      MatPaginatorModule
     ],
 })
 export class ElBaratonMaterialModule { }
