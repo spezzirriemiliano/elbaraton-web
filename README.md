@@ -8,6 +8,7 @@ Version de NODE compatible >= 8.9
 
 ```
 npm install
+node ./ng-add-pug-loader.js
 npm run start
 ```
 
