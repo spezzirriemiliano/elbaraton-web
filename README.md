@@ -1,5 +1,9 @@
 # RappiWeb
 
+**Importante**
+Version de NODE compatible >= 8.9
+
+
 **Pasos para iniciar la aplicación web:**
 
 ```
